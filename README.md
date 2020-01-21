@@ -1,9 +1,8 @@
-# sp_iiq_azure_vm_template
-SailPoint IIQ Azure VM Template
-
 # SailPoint IIQ Azure VM - Ubuntu, OpenJDK, Tomcat and Mysql
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fgithub.pwc.com%2Fraw%2Fnambi-narayanan%2Fsp_iiq_vm%2Fmaster%2Fazuredeploy.json%3Ftoken%3DAAABWLQCNHGLTHA3TXYVEYC6FLIWM" target="_blank">
+## SailPoint IIQ Azure VM Template
+
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/" target="_blank">
     <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
 
