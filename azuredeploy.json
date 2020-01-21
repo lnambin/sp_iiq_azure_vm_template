@@ -104,13 +104,13 @@
   "variables": {
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
-    "nicName": "myVMNic",
-    "nsgName": "myNSG",
+    "nicName": "spiiqvm",
+    "nsgName": "iiqNSG",
     "addressPrefix": "10.0.0.0/16",
     "subnetName": "Subnet",
     "subnetPrefix": "10.0.0.0/24",
-    "publicIPAddressName": "myPublicIP",
-    "virtualNetworkName": "MyVNET",
+    "publicIPAddressName": "spiiqIP",
+    "virtualNetworkName": "spiiqVNET",
     "linuxConfiguration": {
       "disablePasswordAuthentication": true,
       "ssh": {
@@ -122,7 +122,7 @@
         ]
       }
     },
-    "networkSecurityGroupName": "default-NSG"
+    "networkSecurityGroupName": "spiiq-NSG"
   },
   "resources": [
     {
