@@ -315,9 +315,9 @@
         "autoUpgradeMinorVersion": true,
         "settings": {
           "fileUris": [
-            "[uri(parameters('_artifactsLocation'), concat('install_openjdk_tomcat_mysql.sh', parameters('_artifactsLocationSasToken')))]"
+            "https://raw.githubusercontent.com/lnambin/sp_iiq_azure_vm_template/master/install_openjdk_tomcat_mysql.sh"
           ],
-          "commandToExecute": "[concat('sh java-tomcat-install.sh',' ',parameters('javaPackageName'),' ',parameters('tomcatPackageName'))]"
+          "commandToExecute": "[concat('sh install_openjdk_tomcat_mysql.sh',' ',parameters('OpenJDKVersion'),' ',parameters('tomcatMajorVersion'),' ',parameters('tomcatVersion'),' ',parameters('mysqlVersion'))]"
         }
       }
     }
