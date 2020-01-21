@@ -2,34 +2,59 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "javaPackageName": {
+    "OpenJDKVersion": {
       "type": "string",
-      "defaultValue": "openjdk-13-jdk",
+      "defaultValue": "8",
       "allowedValues": [
-        "openjdk-11-jdk",
-        "openjdk-12-jdk",
-        "openjdk-13-jdk"
+        "7",
+        "8"
       ],
       "metadata": {
-        "description": "java Package Name"
+        "description": "OpenJDK Version"
       }
     },
-    "tomcatPackageName": {
+    "tomcatMajorVersion": {
       "type": "string",
-      "defaultValue": "tomcat9",
+      "defaultValue": "9",
       "allowedValues": [
-        "tomcat7",
-        "tomcat8",
-        "tomcat9"
+        "7",
+        "8",
+        "9"
       ],
       "metadata": {
-        "description": "tomcat Package Name"
+        "description": "Tomcat Major Version"
+      }
+    },
+    "tomcatVersion": {
+      "type": "string",
+      "defaultValue": "9.0.30",
+      "metadata": {
+        "description": "Tomcat Version"
+      }
+    },
+    "mysqlVersion": {
+      "type": "string",
+      "defaultValue": "5.7",
+      "allowedValues": [
+        "5.5",
+        "5.6",
+        "5.7"
+      ],
+      "metadata": {
+        "description": "MySQL Version"
       }
     },
     "adminUsername": {
       "type": "string",
       "metadata": {
         "description": "User name for the Virtual Machine."
+      }
+    },
+    "vmName": {
+      "type": "string",
+      "defaultValue": "spiiq",
+      "metadata": {
+        "description": "Name of the virtual machines used when provisioning"
       }
     },
     "vmSize": {
@@ -74,20 +99,6 @@
       "metadata": {
         "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
       }
-    },
-    "_artifactsLocation": {
-      "type": "string",
-      "metadata": {
-        "description": "The base URI where artifacts required by this template are located. When the template is deployed using the accompanying scripts, a private location in the subscription will be used and this value will be automatically generated."
-      },
-      "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/openjdk-tomcat-ubuntu-vm/"
-    },
-    "_artifactsLocationSasToken": {
-      "type": "securestring",
-      "metadata": {
-        "description": "The sasToken required to access _artifactsLocation.  When the template is deployed using the accompanying scripts, a sasToken will be automatically generated."
-      },
-      "defaultValue": ""
     }
   },
   "variables": {
@@ -95,7 +106,6 @@
     "imageOffer": "UbuntuServer",
     "nicName": "myVMNic",
     "nsgName": "myNSG",
-    "vmName": "Tomcat",
     "addressPrefix": "10.0.0.0/16",
     "subnetName": "Subnet",
     "subnetPrefix": "10.0.0.0/24",
@@ -305,7 +315,7 @@
         "autoUpgradeMinorVersion": true,
         "settings": {
           "fileUris": [
-            "[uri(parameters('_artifactsLocation'), concat('java-tomcat-install.sh', parameters('_artifactsLocationSasToken')))]"
+            "[uri(parameters('_artifactsLocation'), concat('install_openjdk_tomcat_mysql.sh', parameters('_artifactsLocationSasToken')))]"
           ],
           "commandToExecute": "[concat('sh java-tomcat-install.sh',' ',parameters('javaPackageName'),' ',parameters('tomcatPackageName'))]"
         }
