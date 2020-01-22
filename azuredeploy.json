@@ -146,8 +146,9 @@
       "properties": {
         "securityRules": [
           {
-            "name": "default-allow-22",
+            "name": "SSH",
             "properties": {
+              "description": "Allow SSH",
               "priority": 1000,
               "access": "Allow",
               "direction": "Inbound",
@@ -157,7 +158,20 @@
               "sourcePortRange": "*",
               "destinationAddressPrefix": "*"
             }
-          }
+          },
+          {
+            "name": "Tomcat",
+            "properties": {
+              "description": "Allow Tomcat",
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "8080",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 1111,
+              "direction": "Inbound"
+            }
         ]
       }
     },
@@ -240,9 +254,9 @@
             }
           },
           {
-            "name": "Web",
+            "name": "Tomcat",
             "properties": {
-              "description": "Allow Web",
+              "description": "Allow Tomcat",
               "protocol": "Tcp",
               "sourcePortRange": "*",
               "destinationPortRange": "8080",
