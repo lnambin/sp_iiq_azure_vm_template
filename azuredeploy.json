@@ -317,7 +317,7 @@
           "fileUris": [
             "https://raw.githubusercontent.com/lnambin/sp_iiq_azure_vm_template/master/install_openjdk_tomcat_mysql.sh"
           ],
-          "commandToExecute": "[concat('sh install_openjdk_tomcat_mysql.sh',' ',parameters('OpenJDKVersion'),' ',parameters('tomcatMajorVersion'),' ',parameters('tomcatVersion'),' ',parameters('mysqlVersion'))]"
+          "commandToExecute": "[concat('sh install_openjdk_tomcat_mysql.sh',' ',parameters('OpenJDKVersion'),' ',parameters('tomcatMajorVersion'),' ',parameters('tomcatVersion'),' ',parameters('mysqlVersion'),' ',parameters('adminUsername'))]"
         }
       }
     }
