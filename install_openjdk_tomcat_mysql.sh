@@ -1,10 +1,10 @@
 #!/bin/bash
 
-MYSQL_ROOT_PASSWORD='P@55w0rd' # SET THIS! Avoid quotes/apostrophes in the password, but do use lowercase + uppercase + numbers + special chars
-MYSQL_VERSION='5.7'
-TOMCAT_MAJOR_VERSION='9'
-TOMCAT_VERSION='9.0.30'
-JDK_VERSION='8'
+JDK_VERSION='$1'
+TOMCAT_MAJOR_VERSION='$2'
+TOMCAT_VERSION='$3'
+MYSQL_VERSION='$4'
+MYSQL_ROOT_PASSWORD='P@55w0rd' 
 
 sudo apt-get -y update
 sudo apt-get -y upgrade
