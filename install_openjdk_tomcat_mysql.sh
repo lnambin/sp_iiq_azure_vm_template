@@ -1,9 +1,10 @@
 #!/bin/bash
 
-JDK_VERSION='8'
-TOMCAT_MAJOR_VERSION='9'
-TOMCAT_VERSION='9.0.30'
-MYSQL_VERSION='5.7'
+JDK_VERSION=$1
+TOMCAT_MAJOR_VERSION=$2
+TOMCAT_VERSION=$3
+MYSQL_VERSION=$4
+USER_NAME=$5
 MYSQL_ROOT_PASSWORD='P@55w0rd' 
 
 sudo apt-get -y update
@@ -16,11 +17,11 @@ sudo apt-get -y update --fix-missing
 # Downloading Tomcat
 wget https://www-eu.apache.org/dist/tomcat/tomcat-$TOMCAT_MAJOR_VERSION/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz -P /tmp
 # Installing Tomcat
-sudo tar xf /tmp/apache-tomcat-9*.tar.gz -C /opt
+sudo tar xf /tmp/apache-tomcat-*.tar.gz -C /opt
 sudo mv /opt/apache-tomcat-* /opt/tomcat
 # For security purposes, Tomcat should not be run under the root user
 # Changing User:Group for Tomcat
-sudo chown -R nambi:nambi /opt/tomcat
+sudo chown -R $USER_NAME:$USER_NAME /opt/tomcat
 
 # Enabling MySQL Silent Installation
 export DEBIAN_FRONTEND=noninteractive
