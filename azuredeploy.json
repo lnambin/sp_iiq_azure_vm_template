@@ -104,8 +104,8 @@
   "variables": {
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
-    "nicName": "spiiqvm",
-    "nsgName": "iiqNSG",
+    "nicName": "spiiq",
+    "nsgName": "spiiqNSG",
     "addressPrefix": "10.0.0.0/16",
     "subnetName": "Subnet",
     "subnetPrefix": "10.0.0.0/24",
