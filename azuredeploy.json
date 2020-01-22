@@ -172,6 +172,7 @@
               "priority": 1111,
               "direction": "Inbound"
             }
+          }
         ]
       }
     },
