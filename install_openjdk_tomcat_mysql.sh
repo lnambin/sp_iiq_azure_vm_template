@@ -82,6 +82,9 @@ echo "MySQL setup completed. Insecure defaults are gone. Please remove this scri
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
+# Starting Tomcat
+/opt/tomcat/bin/startup.sh
+
 if netstat -tulpen | grep 8080
 then
 exit 0
