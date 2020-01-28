@@ -114,8 +114,8 @@
     "addressPrefix": "10.0.0.0/16",
     "subnetName": "Subnet",
     "subnetPrefix": "10.0.0.0/24",
-    "publicIPAddressName": "[parameters('vmName')]_IP",
-    "virtualNetworkName": "[parameters('vmName')]_VNET",
+    "publicIPAddressName": "[concat(parameters('vmName'),'_IP')]",
+    "virtualNetworkName": "[concat(parameters('vmName'),'_VNET')]",
     "linuxConfiguration": {
       "disablePasswordAuthentication": true,
       "ssh": {
@@ -127,7 +127,7 @@
         ]
       }
     },
-    "networkSecurityGroupName": "[parameters('vmName')]_NSG"
+    "networkSecurityGroupName": "[concat(parameters('vmName'),'_NSG')]"
   },
   "resources": [
     {
