@@ -115,7 +115,7 @@
     "subnetName": "Subnet",
     "subnetPrefix": "10.0.0.0/24",
     "publicIPAddressName": "[concat(parameters('vmName'),'_IP')]",
-    "virtualNetworkName": "[concat(parameters('vmName'),'_VNET')]",
+    "virtualNetworkName": "sp_iiq_VNET",
     "linuxConfiguration": {
       "disablePasswordAuthentication": true,
       "ssh": {
@@ -127,7 +127,7 @@
         ]
       }
     },
-    "networkSecurityGroupName": "[concat(parameters('vmName'),'_NSG')]"
+    "networkSecurityGroupName": "sp_iiq_NSG"
   },
   "resources": [
     {
