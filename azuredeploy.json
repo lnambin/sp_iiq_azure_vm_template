@@ -99,6 +99,12 @@
       "metadata": {
         "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
       }
+    },
+    "mySqlRootPwd": {
+      "type": "securestring",
+      "metadata": {
+        "description": "MySQL Root Password"
+      }
     }
   },
   "variables": {
@@ -332,7 +338,7 @@
           "fileUris": [
             "https://raw.githubusercontent.com/lnambin/sp_iiq_azure_vm_template/master/install_openjdk_tomcat_mysql.sh"
           ],
-          "commandToExecute": "[concat('sh install_openjdk_tomcat_mysql.sh',' ',parameters('OpenJDKVersion'),' ',parameters('tomcatMajorVersion'),' ',parameters('tomcatVersion'),' ',parameters('mysqlVersion'),' ',parameters('adminUsername'))]"
+          "commandToExecute": "[concat('sh install_openjdk_tomcat_mysql.sh',' ',parameters('OpenJDKVersion'),' ',parameters('tomcatMajorVersion'),' ',parameters('tomcatVersion'),' ',parameters('mysqlVersion'),' ',parameters('adminUsername'),' ',parameters('mySqlRootPwd'))]"
         }
       }
     }
