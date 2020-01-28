@@ -110,9 +110,9 @@
   "variables": {
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
-    "nicName": "[parameters('vmName')]",
+    "nicName": "[concat(parameters('vmName'),'_NIC')]",
     "addressPrefix": "10.0.0.0/16",
-    "subnetName": "Subnet",
+    "subnetName": "sp_iiq_Subnet",
     "subnetPrefix": "10.0.0.0/24",
     "publicIPAddressName": "[concat(parameters('vmName'),'_IP')]",
     "virtualNetworkName": "sp_iiq_VNET",
