@@ -100,7 +100,7 @@
         "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
       }
     },
-    "mySqlRootPwd": {
+    "mySQLRootPassword": {
       "type": "securestring",
       "metadata": {
         "description": "MySQL Root Password"
@@ -110,13 +110,12 @@
   "variables": {
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
-    "nicName": "spiiq",
-    "nsgName": "spiiqNSG",
+    "nicName": "[parameters('vmName')]",
     "addressPrefix": "10.0.0.0/16",
     "subnetName": "Subnet",
     "subnetPrefix": "10.0.0.0/24",
-    "publicIPAddressName": "spiiqIP",
-    "virtualNetworkName": "spiiqVNET",
+    "publicIPAddressName": "[parameters('vmName')]_IP",
+    "virtualNetworkName": "[parameters('vmName')]_VNET",
     "linuxConfiguration": {
       "disablePasswordAuthentication": true,
       "ssh": {
@@ -128,7 +127,7 @@
         ]
       }
     },
-    "networkSecurityGroupName": "spiiq-NSG"
+    "networkSecurityGroupName": "[parameters('vmName')]_NSG"
   },
   "resources": [
     {
@@ -217,7 +216,7 @@
       "dependsOn": [
         "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))]",
         "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
-        "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgName'))]"
+        "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
       ],
       "properties": {
         "ipConfigurations": [
@@ -235,14 +234,14 @@
           }
         ],
         "networkSecurityGroup": {
-          "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgName'))]"
+          "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
         }
       }
     },
     {
       "type": "Microsoft.Network/networkSecurityGroups",
       "apiVersion": "2019-06-01",
-      "name": "[variables('nsgName')]",
+      "name": "[variables('networkSecurityGroupName')]",
       "location": "[parameters('location')]",
       "properties": {
         "securityRules": [
@@ -338,7 +337,7 @@
           "fileUris": [
             "https://raw.githubusercontent.com/lnambin/sp_iiq_azure_vm_template/master/install_openjdk_tomcat_mysql.sh"
           ],
-          "commandToExecute": "[concat('sh install_openjdk_tomcat_mysql.sh',' ',parameters('OpenJDKVersion'),' ',parameters('tomcatMajorVersion'),' ',parameters('tomcatVersion'),' ',parameters('mysqlVersion'),' ',parameters('adminUsername'),' ',parameters('mySqlRootPwd'))]"
+          "commandToExecute": "[concat('sh install_openjdk_tomcat_mysql.sh',' ',parameters('OpenJDKVersion'),' ',parameters('tomcatMajorVersion'),' ',parameters('tomcatVersion'),' ',parameters('mysqlVersion'),' ',parameters('adminUsername'),' ',parameters('mySQLRootPassword'))]"
         }
       }
     }
