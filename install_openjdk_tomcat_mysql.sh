@@ -5,7 +5,7 @@ TOMCAT_MAJOR_VERSION=$2
 TOMCAT_VERSION=$3
 MYSQL_VERSION=$4
 USER_NAME=$5
-MYSQL_ROOT_PASSWORD='P@55w0rd' 
+MYSQL_ROOT_PASSWORD=$6 
 
 sudo apt-get -y update
 sudo apt-get -y upgrade
